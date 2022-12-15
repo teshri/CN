@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+#include <unistd.h>
+using namespace std;
+int main()
+{
+    int frames;
+    cout<<"input number of frames-->";
+    cin>>frames;
+    int i=1;
+    int sleepTime=2;
+    srand(time(0));
+    while(frames>0)
+    {
+        cout<<"sending frame is -- "<<i<<"\n\n";
+        int x=rand()%10;
+        if(x==5 || x==0 || x==9)
+        {
+            cout<<"\tERROR ERROR in sending \n";
+            cout<<"\twaiting for "<<sleepTime-1<<" seconds\n\n";
+            usleep(2000000);
+            cout<<"sending frame -- "<<i<<" again "<<endl;
+            // int x=rand()%10;
+        }
+        cout<<"acknowledgement for frame -- "<<i<<"\n\n";
+        frames--;
+        i++;
+    }
+
+    cout<<"\tEnd of STOP n WAIT protocol \n";    
+}
+
